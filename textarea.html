@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palabras</title>
+    <script>
+        function contarPalabras() {
+            var textarea = document.getElementById('mensaje');
+            var texto = textarea.value.trim();
+            var palabras = texto.split(/\s+/); // Dividir por espacios en blanco
+            var cantidadPalabras = palabras.length;
+
+            if (cantidadPalabras > 100) {
+                alert('¡Has superado el límite de 100 palabras!');
+                document.getElementById('enviar').disabled = true;  // Deshabilitar el botón
+            } else {
+                document.getElementById('enviar').disabled = false;  // Habilitar el botón
+            }
+        }
+    </script>
+</head>
+<body>
+    <h4>Escribe tu mensaje (máximo 100 palabras):</h4>
+    
+    <textarea id="mensaje" rows="6" cols="50" oninput="contarPalabras()"></textarea><br>
+    
+    <button id="enviar" disabled>Enviar</button>
+</body>
+</html>

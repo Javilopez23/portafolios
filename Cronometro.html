@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronómetro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #time {
+      font-size: 60px;
+      margin: 25px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cronómetro</h1>
+  <div id="time">00:00:00</div>
+  <button onclick="startTimer()">Iniciar</button>
+  <button onclick="pauseTimer()">Pausar</button>
+  <button onclick="resetTimer()">Reiniciar</button>
+
+  <script>
+    let timer; // Para almacenar el intervalo
+    let seconds = 0; // Tiempo en segundos
+    let running = false; // Estado del cronómetro
+
+    function formatTime(sec) {
+      const hrs = String(Math.floor(sec / 3600)).padStart(2, '0');
+      const mins = String(Math.floor((sec % 3600) / 60)).padStart(2, '0');
+      const secs = String(sec % 60).padStart(2, '0');
+      return `${hrs}:${mins}:${secs}`;
+    }
+
+    function updateTime() {
+      document.getElementById("time").textContent = formatTime(seconds);
+    }
+
+    function startTimer() {
+      if (!running) {
+        running = true;
+        timer = setInterval(() => {
+          seconds++;
+          updateTime();
+        }, 1000);
+      }
+    }
+
+    function pauseTimer() {
+      clearInterval(timer);
+      running = false;
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      running = false;
+      seconds = 0;
+      updateTime();
+    }
+
+    // Inicializar el tiempo
+    updateTime();
+  </script>
+</body>
+</html>

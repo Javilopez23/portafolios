@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenguajes de Programación</title>
+    <script>
+        function contarLenguajes() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            var cantidad = checkboxes.length;
+            document.getElementById('resultado').innerHTML = 'Conoces ' + cantidad + ' lenguaje(s) de programación.';
+        }
+    </script>
+</head>
+<body>
+    <h4>Selecciona los lenguajes de programación que conoces:</h4>
+    
+    <input type="checkbox" id="js" name="lenguaje" value="JavaScript"> JavaScript<br>
+    <input type="checkbox" id="python" name="lenguaje" value="Python"> Python<br>
+    <input type="checkbox" id="java" name="lenguaje" value="Java"> Java<br>
+    <input type="checkbox" id="c" name="lenguaje" value="C++"> C++<br>
+    <input type="checkbox" id="php" name="lenguaje" value="PHP"> PHP<br>
+    
+    <br>
+    <input type="button" value="Contar" onclick="contarLenguajes()">
+    
+    <p id="resultado"></p>
+</body>
+</html>

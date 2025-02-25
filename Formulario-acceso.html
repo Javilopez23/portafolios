@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script>
+        function verificarClave(event) {
+            event.preventDefault(); // Evita que el formulario se envíe automáticamente
+            
+            const usuario = document.getElementById("usuario").value;
+            const clave = document.getElementById("clave").value;
+            const claveCorrecta = "1234"; // Puedes cambiar la clave aquí
+
+            if (clave === claveCorrecta) {
+                window.location.href = "https://www.google.com";
+            } else {
+                alert("Error de contraseña. Intente de nuevo.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Iniciar Sesión</h2>
+    <form onsubmit="verificarClave(event)">
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" required><br><br>
+        
+        <label for="clave">Contraseña:</label>
+        <input type="password" id="clave" required><br><br>
+        
+        <button type="submit">Ingresar</button>
+    </form>
+</body>
+</html>
